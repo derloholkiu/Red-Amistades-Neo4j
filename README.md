@@ -116,9 +116,9 @@ El sistema permite:
 - Recomendar nuevos amigos mediante relaciones de segundo nivel.
 
 ## Autores:
--AGUILAR CALDERON AGUILAR CALDERON
--ALCALDE NAVARRO SEBASTIAN ALONSO 
--RIOS RIOS HOLGER BRYAM
--SANCHEZ VARGAS DANIELA CRISTINA
+-AGUILAR CALDERON AGUILAR CALDERON.
+-ALCALDE NAVARRO SEBASTIAN ALONSO.
+-RIOS RIOS HOLGER BRYAM.
+-SANCHEZ VARGAS DANIELA CRISTINA.
 
-Proyecto desarrollado para el curso de Bases de Datos NoSQL utilizando Neo4j
+Proyecto desarrollado para el curso de Bases de Datos NoSQL utilizando Neo4j.
