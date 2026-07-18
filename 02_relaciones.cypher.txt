@@ -1,0 +1,77 @@
+// ======================================
+// RELACIONES ES_DE (Persona -> Curso)
+// ======================================
+
+MATCH (c1:Curso {nombre:"Programación"})
+MATCH (c2:Curso {nombre:"Base de Datos"})
+MATCH (c3:Curso {nombre:"Inteligencia Artificial"})
+MATCH (c4:Curso {nombre:"Redes"})
+MATCH (c5:Curso {nombre:"Ingeniería de Software"})
+MATCH (c6:Curso {nombre:"Ciberseguridad"})
+MATCH (c7:Curso {nombre:"Matemática"})
+MATCH (c8:Curso {nombre:"Física"})
+
+MATCH (p:Persona)
+
+WITH c1,c2,c3,c4,c5,c6,c7,c8,p
+
+FOREACH (_ IN CASE WHEN p.nombre IN ["Andrea","Carlos","Lucía","Pedro","Ana"] THEN [1] ELSE [] END |
+    CREATE (p)-[:ES_DE]->(c1))
+
+FOREACH (_ IN CASE WHEN p.nombre IN ["Miguel","Rosa","Diego","Sofía","Jorge"] THEN [1] ELSE [] END |
+    CREATE (p)-[:ES_DE]->(c2))
+
+FOREACH (_ IN CASE WHEN p.nombre IN ["Valeria","Fernando","Camila","Luis","Paula"] THEN [1] ELSE [] END |
+    CREATE (p)-[:ES_DE]->(c3))
+
+FOREACH (_ IN CASE WHEN p.nombre IN ["Ricardo","Elena","Gabriel","María","Daniel"] THEN [1] ELSE [] END |
+    CREATE (p)-[:ES_DE]->(c4))
+
+FOREACH (_ IN CASE WHEN p.nombre IN ["José","Patricia","Kevin","Natalia","Cristian"] THEN [1] ELSE [] END |
+    CREATE (p)-[:ES_DE]->(c5))
+
+FOREACH (_ IN CASE WHEN p.nombre IN ["Diana","Sebastián","Nicole","Iván","Alejandra"] THEN [1] ELSE [] END |
+    CREATE (p)-[:ES_DE]->(c6))
+
+FOREACH (_ IN CASE WHEN p.nombre IN ["Renzo","Karen","Óscar","Vanessa","Julio"] THEN [1] ELSE [] END |
+    CREATE (p)-[:ES_DE]->(c7))
+
+FOREACH (_ IN CASE WHEN p.nombre IN ["Adriana","Hugo","Melissa","Álvaro","Carmen"] THEN [1] ELSE [] END |
+    CREATE (p)-[:ES_DE]->(c8));
+
+// ======================================
+// RELACIONES LE_GUSTA (2 hobbies por persona)
+// ======================================
+
+MATCH (p:Persona)
+MATCH (h1:Hobby {nombre:"Videojuegos"})
+MATCH (h2:Hobby {nombre:"Fútbol"})
+MATCH (h3:Hobby {nombre:"Vóley"})
+MATCH (h4:Hobby {nombre:"Música"})
+MATCH (h5:Hobby {nombre:"Programar"})
+MATCH (h6:Hobby {nombre:"Lectura"})
+MATCH (h7:Hobby {nombre:"Viajar"})
+MATCH (h8:Hobby {nombre:"Cine"})
+MATCH (h9:Hobby {nombre:"Fotografía"})
+MATCH (h10:Hobby {nombre:"Natación"})
+
+WITH p,h1,h2,h3,h4,h5,h6,h7,h8,h9,h10
+
+WITH p,
+CASE
+WHEN p.nombre IN ["Andrea","Miguel","Valeria","José"] THEN [h1,h5]
+WHEN p.nombre IN ["Carlos","Rosa","Fernando","Patricia"] THEN [h2,h4]
+WHEN p.nombre IN ["Lucía","Diego","Camila","Kevin"] THEN [h3,h6]
+WHEN p.nombre IN ["Pedro","Sofía","Luis","Natalia"] THEN [h7,h8]
+WHEN p.nombre IN ["Ana","Jorge","Paula","Cristian"] THEN [h9,h10]
+WHEN p.nombre IN ["Ricardo","Diana","Renzo","Adriana"] THEN [h5,h8]
+WHEN p.nombre IN ["Elena","Sebastián","Karen","Hugo"] THEN [h4,h7]
+WHEN p.nombre IN ["Gabriel","Nicole","Óscar","Melissa"] THEN [h2,h9]
+WHEN p.nombre IN ["María","Iván","Vanessa","Álvaro"] THEN [h1,h6]
+ELSE [h3,h10]
+END AS hobbies
+
+FOREACH (h IN hobbies |
+    CREATE (p)-[:LE_GUSTA]->(h)
+);
+
