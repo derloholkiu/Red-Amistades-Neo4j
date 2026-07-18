@@ -115,6 +115,10 @@ El sistema permite:
 - Encontrar amigos en común entre dos personas.
 - Recomendar nuevos amigos mediante relaciones de segundo nivel.
 
-## Autor
+## Autores:
+AGUILAR CALDERON AGUILAR CALDERON
+ALCALDE NAVARRO SEBASTIAN ALONSO 
+RIOS RIOS HOLGER BRYAM
+SANCHEZ VARGAS DANIELA CRISTINA
 
-Proyecto desarrollado para el curso de Bases de Datos NoSQL utilizando Neo4j.
+Proyecto desarrollado para el curso de Bases de Datos NoSQL utilizando Neo4j
