@@ -1,0 +1,42 @@
+// ==========================================
+// CONSULTA 1
+// Sugerencia de amigos (amigos de amigos)
+// ==========================================
+
+MATCH (p:Persona {nombre:"Andrea"})-[:AMIGO_DE]-(amigo)-[:AMIGO_DE]-(sugerido)
+WHERE sugerido <> p
+AND NOT (p)-[:AMIGO_DE]-(sugerido)
+
+RETURN
+sugerido.nombre AS PersonaSugerida,
+COUNT(amigo) AS AmigosEnComun
+
+ORDER BY AmigosEnComun DESC;
+
+
+// ==========================================
+// CONSULTA 2
+// Personas con más conexiones (más populares)
+// ==========================================
+
+MATCH (p:Persona)
+
+OPTIONAL MATCH (p)-[:AMIGO_DE]-()
+
+RETURN
+p.nombre AS Persona,
+COUNT(*) AS TotalAmigos
+
+ORDER BY TotalAmigos DESC;
+
+
+// ==========================================
+// CONSULTA 3
+// Amigos en común entre dos personas
+// ==========================================
+
+MATCH
+(a:Persona {nombre:"Andrea"})-[:AMIGO_DE]-(comun)-[:AMIGO_DE]-(b:Persona {nombre:"Miguel"})
+
+RETURN
+comun.nombre AS AmigoEnComun;
