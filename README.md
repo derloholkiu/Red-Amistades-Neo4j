@@ -117,8 +117,11 @@ El sistema permite:
 
 ## Autores:
 -AGUILAR CALDERON AGUILAR CALDERON.
+
 -ALCALDE NAVARRO SEBASTIAN ALONSO.
+
 -RIOS RIOS HOLGER BRYAM.
+
 -SANCHEZ VARGAS DANIELA CRISTINA.
 
 Proyecto desarrollado para el curso de Bases de Datos NoSQL utilizando Neo4j.
