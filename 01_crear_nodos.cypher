@@ -1,0 +1,63 @@
+// =============================
+// ELIMINAR TODO (solo si es una base nueva)
+// =============================
+// Si ya tienes la base de datos creada y funcionando,
+// NO ejecutes estas dos líneas.
+
+// MATCH (n)
+// DETACH DELETE n;
+
+// =============================
+// CREAR CURSOS
+// =============================
+UNWIND [
+"Programación",
+"Base de Datos",
+"Inteligencia Artificial",
+"Redes",
+"Ingeniería de Software",
+"Ciberseguridad",
+"Matemática",
+"Física"
+] AS curso
+
+CREATE (:Curso {nombre: curso});
+
+// =============================
+// CREAR HOBBIES
+// =============================
+UNWIND [
+"Videojuegos",
+"Fútbol",
+"Vóley",
+"Música",
+"Programar",
+"Lectura",
+"Viajar",
+"Cine",
+"Fotografía",
+"Natación"
+] AS hobby
+
+CREATE (:Hobby {nombre: hobby});
+
+// =============================
+// CREAR PERSONAS
+// =============================
+UNWIND [
+
+"Andrea","Carlos","Lucía","Pedro","Ana",
+"Miguel","Rosa","Diego","Sofía","Jorge",
+
+"Valeria","Fernando","Camila","Luis","Paula",
+"Ricardo","Elena","Gabriel","María","Daniel",
+
+"José","Patricia","Kevin","Natalia","Cristian",
+"Diana","Sebastián","Nicole","Iván","Alejandra",
+
+"Renzo","Karen","Óscar","Vanessa","Julio",
+"Adriana","Hugo","Melissa","Álvaro","Carmen"
+
+] AS persona
+
+CREATE (:Persona {nombre: persona});
